@@ -117,7 +117,7 @@ function setNextQuestion() {
     showQuestion(randomQuestions[currentQuestionIndex])
 }
 
-// Display question, display answers and check if the selected answer is correct
+// Display questions and answers 
 function showQuestion(question) {
     questionElement.innerText = question.question
     question.answerBtn.forEach(answer => {
@@ -140,13 +140,10 @@ function resetState() {
     }
 }
 
+// User selection and validating the selected answer (true/false)
 function selectAnswer (e) {
     const selectedButton = e.target
-    console.log(e.target.textContent)
-
-    //! Update this!
-
-
+    //console.log(e.target.textContent)
     const correct = selectedButton.dataset.correct
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -159,15 +156,17 @@ function selectAnswer (e) {
     } 
 }
 
+// Wrong questions lead to reduced time
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add("correct")
     } else {
         element.classList.add("wrong")
-        startTime -= 5; // Reduce the time if the wrong answer is selected
+        startTime -= 3;
     }
 }
+
 
 function clearStatusClass(element) {
     element.classList.remove("correct")

@@ -6,7 +6,8 @@ let questions = [
            { text: "*", correct: false },
            { text: "/", correct: true },
            { text: "<", correct: false },
-        ]
+        ],
+        correctAnswer: "/",
     },
 
     {
@@ -16,7 +17,8 @@ let questions = [
            { text: "h2", correct: false },
            { text: "h3", correct: false },
            { text: "h4", correct: false },
-        ]
+        ],
+        correctAnswer: "h1",
     },
 
     {
@@ -26,7 +28,8 @@ let questions = [
            { text: "ul", correct: false },
            { text: "ol", correct: true },
            { text: "list", correct: false },
-        ]
+        ],
+        correctAnswer: "ol",
     },
 
     {
@@ -36,7 +39,8 @@ let questions = [
            { text: "title", correct: false },
            { text: "img", correct: false },
            { text: "alt", correct: true },
-        ]
+        ],
+        correctAnswer: "alt",
     },
 
     {
@@ -46,30 +50,39 @@ let questions = [
            { text: "header", correct: true },
            { text: "top", correct: false },
            { text: "head", correct: false },
-        ]
+        ],
+        correctAnswer: "header",
     },
 ];
 
-var startTime = 60;
-var timer;
+// Start time = 60 seconds
+let startTime = 60;
+let timer;
 
+// Timer element
 var timerEl = document.getElementById("timer")
 
-timerEl.textContent = startTime;
-    
-//? The timer starts from startTime and the number of seconds gets reduced by 1 second
-startTime--;
-startTime = startTime - 1
-    
-    //? When the time runs out, end the quiz
-if (startTime <= 0) {
-    endQuiz()
-   }
+//? Function to end the quiz
+function endQuiz() {
+    clearInterval(timer)
+    alert("The quiz is over. To play again, please refresh the page.")
+}
+
+function timerInterval() {
+    timerEl.textContent = startTime;
+    startTime--;
+    if (startTime <= 0) {
+        endQuiz()
+        }
+}
 
 //? Function to start the timer
 function timerStart () {
     timer = setInterval(timerInterval, 1000)
 }
+
+//! Tracks which question is the user answering (depending on the index position)
+//var currentQuestionIndex = 0;
 
 const startButton = document.getElementById("startBtn")
 
@@ -82,22 +95,24 @@ const answerButtonsElement = document.getElementById("answerButtons")
 
 let randomQuestions, currentQuestionIndex
 
+
 startButton.addEventListener("click", startQuiz)
+startButton.addEventListener("click", timerStart) //Timer starts the countdown upon the quiz start
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++
     setNextQuestion()
 })
 
+// Start Quiz function and randomizing the order of questions
 function startQuiz() {
     startButton.classList.add("hide")
     randomQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove("hide")
     setNextQuestion ()
-
-    timerStart()
 }
 
+// Next question function, removing the previous question data, moving to the next question
 function setNextQuestion() {
     resetState()
     showQuestion(randomQuestions[currentQuestionIndex])
@@ -127,19 +142,17 @@ function resetState() {
 
 function selectAnswer () {
     const selectedButton = e.target
-    const correct = selectedButted.dataset.correct
+    const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
     if (randomQuestions.length > currentQuestionIndex +1) {
         nextButton.classList.remove("hide")
-    
     } else {
         startButton.innerText = "Restart"
         startButton.classList.remove("hide")
-    }
-    
+    } 
 }
 
 function setStatusClass(element, correct) {
@@ -154,11 +167,6 @@ function setStatusClass(element, correct) {
 function clearStatusClass(element) {
     element.classList.remove("correct")
     element.classList.remove("wrong")
-}
-
-//? Function to end the quiz
-function endQuiz(){
-    clearInterval(timer)
 }
 
 

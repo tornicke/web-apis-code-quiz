@@ -1,55 +1,57 @@
 let questions = [
     {
-        questionTitle: "Choose the correct HTML element for the largest heading:",
-        options: [
-           { text: "^", correct: false },
-           { text: "*", correct: false },
-           { text: "/", correct: true },
-           { text: "<", correct: false },
+
+        //! change question
+        question: "Which character is used to indicate an end tag?",
+        answerBtn: [
+           { answer: "^", correct: false },
+           { answer: "*", correct: false },
+           { answer: "/", correct: true },
+           { answer: "<", correct: false },
         ],
         correctAnswer: "/",
     },
 
     {
-        questionTitle: "Which character is used to indicate an end tag?",
-        options: [
-           { text: "h1", correct: true },
-           { text: "h2", correct: false },
-           { text: "h3", correct: false },
-           { text: "h4", correct: false },
+        question: "Choose the correct HTML element for the largest heading:",
+        answerBtn: [
+           { answer: "h1", correct: true },
+           { answer: "h2", correct: false },
+           { answer: "h3", correct: false },
+           { answer: "h4", correct: false },
         ],
         correctAnswer: "h1",
     },
 
     {
-        questionTitle: "Which tag do you use to make a numbered list?",
-        options: [
-           { text: "dl", correct: false },
-           { text: "ul", correct: false },
-           { text: "ol", correct: true },
-           { text: "list", correct: false },
+        question: "Which tag do you use to make a numbered list?",
+        answerBtn: [
+           { answer: "dl", correct: false },
+           { answer: "ul", correct: false },
+           { answer: "ol", correct: true },
+           { answer: "list", correct: false },
         ],
         correctAnswer: "ol",
     },
 
     {
-        questionTitle: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
-        options: [
-           { text: "src", correct: false },
-           { text: "title", correct: false },
-           { text: "img", correct: false },
-           { text: "alt", correct: true },
+        question: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+        answerBtn: [
+           { answer: "src", correct: false },
+           { answer: "title", correct: false },
+           { answer: "img", correct: false },
+           { answer: "alt", correct: true },
         ],
         correctAnswer: "alt",
     },
 
     {
-        questionTitle: "Which HTML element is used to specify a header for a document or section?",
-        options: [
-           { text: "section", correct: false },
-           { text: "header", correct: true },
-           { text: "top", correct: false },
-           { text: "head", correct: false },
+        question: "Which HTML element is used to specify a header for a document or section?",
+        answerBtn: [
+           { answer: "section", correct: false },
+           { answer: "header", correct: true },
+           { answer: "top", correct: false },
+           { answer: "head", correct: false },
         ],
         correctAnswer: "header",
     },
@@ -60,7 +62,7 @@ let startTime = 60;
 let timer;
 
 // Timer element
-var timerEl = document.getElementById("timer")
+let timerEl = document.getElementById("timer")
 
 //? Function to end the quiz
 function endQuiz() {
@@ -90,8 +92,8 @@ let nextButton = document.getElementById("nextBtn")
 
 const questionContainerElement = document.getElementById("questionContainer")
 
-let questionElement = document.getElementById("questionTitle")
-let answerButtonsElement = document.getElementById("answerButtons")
+let questionElement = document.getElementById("question")
+let answerButtonsElement = document.getElementById("answerBtn")
 
 let randomQuestions, currentQuestionIndex
 
@@ -118,11 +120,11 @@ function setNextQuestion() {
     showQuestion(randomQuestions[currentQuestionIndex])
 }
 
-function showQuestion(questionTitle) {
-    questionElement.innerText = questionTitle.questionTitle
-    questionTitle.options.forEach(answer => {
+function showQuestion(question) {
+    questionElement.innerText = question.question
+    question.answerBtn.forEach(answer => {
         const button = document.createElement("button")
-        button.innerText = answer.innerText
+        button.innerText = answer.answer
         button.classList.add("btn")
         if (answer.correct) {
             button.dataset.correct = answer.correct
@@ -140,10 +142,15 @@ function resetState() {
     }
 }
 
-function selectAnswer () {
+function selectAnswer (e) {
     const selectedButton = e.target
+    console.log(e.target.textContent)
+
+    //! Update this!
+
+
     const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    //setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -161,6 +168,7 @@ function setStatusClass(element, correct) {
         element.classList.add("correct")
     } else {
         element.classList.add("wrong")
+        //! startTime -= 5; Update
     }
 }
 
@@ -206,13 +214,6 @@ function clearStatusClass(element) {
     //? Display the first question
     //displayQuestion()
 //}
-
-
-//function displayQuestion() {
-    // 
-// }
-
-//! Function to display a question
 
 
 //? Function for question click (to update the timer and also display the next question)

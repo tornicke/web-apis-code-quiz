@@ -28,3 +28,7 @@
 <li>Repository follows best practices for class/id naming conventions, indentation, high-quality comments, etc.,</li>
 <li>Repository contains multiple descriptive commit messages,</li>
 <li>Repository contains a high-quality README file with description, screenshot, and link to deployed application.</li>
+
+<h2>Screenshot</h2>
+
+![image](LINK) 

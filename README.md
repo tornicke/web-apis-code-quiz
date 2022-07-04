@@ -32,3 +32,7 @@
 <h2>Screenshot</h2>
 
 ![image](LINK) 
+
+<h2>Disclaimer</h2>
+
+Questions borrowed from [W3 schools](https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)

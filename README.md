@@ -31,7 +31,7 @@
 
 <h2>Screenshot</h2>
 
-![image](https://github.com/tornicke/web-apis-code-quiz/blob/main/Assets/Screenshot.png) 
+![image](https://github.com/tornicke/web-apis-code-quiz/blob/a3ee8045ae25e87e3c6cba2a84ad64268e27cf99/Assets/Screenshot.png) 
 
 <h2>Disclaimer</h2>
 

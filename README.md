@@ -36,3 +36,9 @@
 <h2>Disclaimer</h2>
 
 Questions borrowed from [W3 schools](https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS)
+
+<h2>Required URLs:</h2>
+
+[Live deployment URL](https://tornicke.github.io/web-apis-code-quiz/)
+
+[GitHub repository URL](https://github.com/tornicke/web-apis-code-quiz)

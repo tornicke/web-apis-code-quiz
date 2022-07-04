@@ -1,8 +1,7 @@
 let questions = [
     {
-
-        //! change question
-        question: "Which character is used to indicate an end tag?",
+        // Original question changed to avoid confusion
+        question: "Which character differentiates an opening tag from a closing tag?",
         answerBtn: [
            { answer: "^", correct: false },
            { answer: "*", correct: false },
@@ -64,12 +63,13 @@ let timer;
 // Timer element
 let timerEl = document.getElementById("timer")
 
-//? Function to end the quiz
+// Function to end the quiz, displaying the end quiz message
 function endQuiz() {
     clearInterval(timer)
     alert("The time is up and the quiz is over. To play again, please refresh the page.")
 }
 
+// Decrease the time by one second, end the quiz if the time runs out
 function timerInterval() {
     timerEl.textContent = startTime;
     startTime--;
@@ -78,13 +78,10 @@ function timerInterval() {
         }
 }
 
-//? Function to start the timer
+// Function to start the timer
 function timerStart () {
     timer = setInterval(timerInterval, 1000)
 }
-
-//! Tracks which question is the user answering (depending on the index position)
-//var currentQuestionIndex = 0;
 
 let startButton = document.getElementById("startBtn")
 
@@ -97,29 +94,30 @@ let answerButtonsElement = document.getElementById("answerBtn")
 
 let randomQuestions, currentQuestionIndex
 
-
+// Start the quiz and start the timer when the start button is clicked
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", timerStart) //Timer starts the countdown upon the quiz start
-nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", () => { //Move to the next question
     currentQuestionIndex++
     setNextQuestion()
 })
 
 // Start Quiz function and randomizing the order of questions
 function startQuiz() {
-    startButton.classList.add("hide")
+    startButton.classList.add("hide") //Hide the start button
     randomQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove("hide")
     setNextQuestion ()
 }
 
-// Next question function, removing the previous question data, moving to the next question
+// Next question function, removing the previous question data, moving to the next random question
 function setNextQuestion() {
     resetState()
     showQuestion(randomQuestions[currentQuestionIndex])
 }
 
+// Display question, display answers and check if the selected answer is correct
 function showQuestion(question) {
     questionElement.innerText = question.question
     question.answerBtn.forEach(answer => {
@@ -150,7 +148,6 @@ function selectAnswer (e) {
 
 
     const correct = selectedButton.dataset.correct
-    //setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
@@ -168,7 +165,7 @@ function setStatusClass(element, correct) {
         element.classList.add("correct")
     } else {
         element.classList.add("wrong")
-        //! startTime -= 5; Update
+        startTime -= 5; // Reduce the time if the wrong answer is selected
     }
 }
 
@@ -176,64 +173,3 @@ function clearStatusClass(element) {
     element.classList.remove("correct")
     element.classList.remove("wrong")
 }
-
-//var startTime = 60;
-//var timer;
-
-//var timerEl = document.getElementById("timer")
-
-//? Tracks which question is the user answering (depending on the index position)
-//var currentQuestionIndex = 0;
-
-
-//function timerInterval(){
-    //! debugger
-    //! timerEl.textContent = startTime;
-    
-    //? The timer starts from startTime and the number of seconds gets reduced by 1 second
-    //startTime--;
-    // startTime = startTime - 1
-    
-    //? When the time runs out, end the quiz
-   // if (startTime <= 0) {
-        //endQuiz()
-   // }
-//}
-
-//? Function to start the timer
-//function timerStart () {
-    //timer = setInterval(timerInterval, 1000)
-//}
-
-//? Function to start quiz
-//function startQuiz() {
-
-    //? Start timer
-    //timerStart()
-
-    //? Display the first question
-    //displayQuestion()
-//}
-
-
-//? Function for question click (to update the timer and also display the next question)
-//function questionClick() {
-    //? This shows whether the given answer was correct or not
-    //if 
-
-    //! else
-
-
-    //? Moving to the next question using currentQuestionIndex++
-
-    //currentQuestionIndex++
-
-//}
-
-//? Function to end the quiz
-//function endQuiz(){
-    //
-    //clearInterval(timer)
-//}
-
-//startQuiz()

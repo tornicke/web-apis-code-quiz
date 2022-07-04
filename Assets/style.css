@@ -1,7 +1,7 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
-}
+/*Adding fonts*/
+:root {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+  }
 
 body {
     background-color: white;
@@ -36,7 +36,7 @@ body {
 }
 
 .btn {
-    border: 1px solid hsl(var(--hue), 100%, 30%);
+    border: 1px solid blue;
     background-color: rgb(66, 21, 86);
     border-radius: 5px;
     padding: 5px 10px;

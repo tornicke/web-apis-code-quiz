@@ -65,7 +65,7 @@ var timerEl = document.getElementById("timer")
 //? Function to end the quiz
 function endQuiz() {
     clearInterval(timer)
-    alert("The quiz is over. To play again, please refresh the page.")
+    alert("The time is up and the quiz is over. To play again, please refresh the page.")
 }
 
 function timerInterval() {
@@ -84,14 +84,14 @@ function timerStart () {
 //! Tracks which question is the user answering (depending on the index position)
 //var currentQuestionIndex = 0;
 
-const startButton = document.getElementById("startBtn")
+let startButton = document.getElementById("startBtn")
 
-const nextButton = document.getElementById("nextBtn")
+let nextButton = document.getElementById("nextBtn")
 
 const questionContainerElement = document.getElementById("questionContainer")
 
 let questionElement = document.getElementById("questionTitle")
-const answerButtonsElement = document.getElementById("answerButtons")
+let answerButtonsElement = document.getElementById("answerButtons")
 
 let randomQuestions, currentQuestionIndex
 
@@ -168,8 +168,6 @@ function clearStatusClass(element) {
     element.classList.remove("correct")
     element.classList.remove("wrong")
 }
-
-
 
 //var startTime = 60;
 //var timer;

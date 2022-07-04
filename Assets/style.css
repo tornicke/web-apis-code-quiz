@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vw;
+    height: 40vw;
     width: 100vh;
 }
 
@@ -71,14 +71,16 @@ body {
     display: none;
 }
 
-.questionTitle {
+.question {
     font-size: 18px;
     font-weight: bold;
     justify-content: space-between;
 }
 
-.timer {
-    display: flex;
+.timeLeft {
     font-size: 16px;
-    color: green;
+    color: rgb(0, 6, 128);
+    align-items: flex-end;
+    padding: 2px;
+    margin: 5px 5px;
 }

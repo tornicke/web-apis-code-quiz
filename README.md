@@ -12,3 +12,19 @@
 <li>WHEN I answer a question incorrectly, THEN time is subtracted from the clock,</li>
 <li>WHEN all questions are answered or the timer reaches, THEN the game is over,</li>
 <li>WHEN the game is over, THEN I can save my initials and score.</li>
+
+<h2>Grading Requirements</h2>
+<p>Technical Acceptance Criteria:</p>
+<li>Satisfies all of the basic acceptance criteria,</li>
+<li>Application deployed at live URL,</li>
+<li>Application loads with no errors,</li>
+<li>Application GitHub URL submitted,</li>
+<li>GitHub repository that contains application code,</li>
+<li>Application user experience is intuitive and easy to navigate,</li>
+<li>Application user interface style is clean and polished,</li>
+<li>Application resembles the mock-up functionality provided in the Challenge instructions,</li>
+<li>Repository has a unique name,</li>
+<li>Repository follows best practices for file structure and naming conventions,</li>
+<li>Repository follows best practices for class/id naming conventions, indentation, high-quality comments, etc.,</li>
+<li>Repository contains multiple descriptive commit messages,</li>
+<li>Repository contains a high-quality README file with description, screenshot, and link to deployed application.</li>

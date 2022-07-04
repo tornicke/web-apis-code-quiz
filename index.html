@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./Assets/style.css">
+
+    
+</head>
+<body>
+    <div class="container">
+        <div id="questionContainer" class="hide">
+            <div id="question">Question</div>
+            <div id="answerBtn" class="btnGrid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls"></div>
+        <button id="startBtn" class="startBtn btn">Start the quiz</button>
+        <button id="nextBtn" class="nextBtn btn hide">Next question</button>
+        <p id="timer"></p>
+    </div>
+        
+    <script src="./Assets/questions.js"></script>
+    <script src="./Assets/script.js"></script>
+</body>
+</html>
